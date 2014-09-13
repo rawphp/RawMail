@@ -37,6 +37,7 @@ namespace RawPHP\RawMail;
 
 use RawPHP\RawBase\Component;
 use RawPHP\RawMail\IMail;
+use RawPHP\RawBase\Exceptions\RawException;
 
 /**
  * An email handler service.
@@ -76,10 +77,6 @@ class Mail extends Component implements IMail
                     $this->mailer->FromName = $value;
                     break;
                 
-                case 'to':
-                    $this->mailer->addAddress( $value );
-                    break;
-                
                 case 'is_html':
                     $this->mailer->isHTML( $value );
                     break;
@@ -87,7 +84,9 @@ class Mail extends Component implements IMail
                 case 'smtp':
                     if ( !empty( $value ) )
                     {
+                        // mark it as SMTP mail
                         $this->mailer->isSMTP();
+                        
                         $this->mailer->Host       = $value[ 'host' ];
                         $this->mailer->SMTPAuth   = $value[ 'auth' ];
                         $this->mailer->Username   = $value[ 'username' ];
@@ -111,6 +110,43 @@ class Mail extends Component implements IMail
         }
         
         $this->doAction( self::ON_MAIL_INIT_ACTION );
+    }
+    
+    /**
+     * Sets the TO: email address.
+     * 
+     * @param array $to address and optional name
+     *                  e.g., <code>
+     *                          array( 'address' => 'address@example.com,
+     *                                 'name'    => 'John Smith' );
+     *                        </code>
+     * 
+     * @filter ON_MAIL_ADD_TO_FILTER
+     * 
+     * @action ON_MAIL_ADD_TO_ACTION
+     * 
+     * @return bool TRUE on success, FALSE on failure
+     */
+    public function addTo( $to = array( ) )
+    {
+        $to = $this->filter( self::ON_MAIL_ADD_TO_FILTER, $to );
+        
+        if ( is_array( $to ) )
+        {
+            $result = $this->mailer->addAddress( $to[ 'address' ], $to[ 'name' ] );
+        }
+        elseif ( is_string( $to ) )
+        {
+            $result = $this->mailer->addAddress( $to );
+        }
+        else
+        {
+            throw new Exception( 'Something went wrong with adding TO recipient' );
+        }
+        
+        $this->doAction( self::ON_MAIL_ADD_TO_ACTION );
+        
+        return $result;
     }
     
     /**
@@ -221,6 +257,7 @@ class Mail extends Component implements IMail
     }
     
     const ON_MAIL_INIT_ACTION           = 'on_mail_init_action';
+    const ON_MAIL_ADD_TO_ACTION         = 'on_mail_add_to_action';
     const ON_MAIL_SET_SUBJECT_ACTION    = 'on_mail_set_subject_action';
     const ON_MAIL_SET_BODY_ACTION       = 'on_mail_set_body_action';
     const ON_MAIL_ADD_ATTACHMENT_ACTION = 'on_mail_add_attachment_action';
@@ -229,6 +266,7 @@ class Mail extends Component implements IMail
     const ON_MAIL_BEFORE_SEND_ACTION    = 'on_mail_before_send_action';
     const ON_MAIL_AFTER_SEND_ACTION     = 'on_mail_after_send_action';
     
+    const ON_MAIL_ADD_TO_FILTER         = 'on_mail_add_to_filter';
     const ON_MAIL_ADD_ATTACHMENT_FILTER = 'on_mail_add_attachment_filter';
     
 }

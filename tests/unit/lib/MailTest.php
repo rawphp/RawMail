@@ -54,6 +54,7 @@ class MailTest extends \PHPUnit_Framework_TestCase
      */
     public $mail;
     
+    private $_to      = array( 'address' => 'test@example.com', 'name' => 'John Smith' );
     private $_subject = 'Test Subject';
     private $_body    = 'Test message body';
         
@@ -99,6 +100,8 @@ class MailTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals( $config[ 'from_email' ], $this->mail->mailer->From );
         $this->assertEquals( $config[ 'from_name' ], $this->mail->mailer->FromName );
         
+        $this->mail->addTo( $this->_to );
+        
         $this->assertEquals( $this->_subject, $this->mail->mailer->Subject );
         $this->assertEquals( $this->_body, $this->mail->mailer->Body );
         
@@ -114,6 +117,8 @@ class MailTest extends \PHPUnit_Framework_TestCase
      */
     public function testMailFailsToSendWithBadSmtpCredentials( )
     {
+        $this->mail->addTo( $this->_to );
+        
         $this->assertFalse( $this->mail->send( ) );
     }
 }

@@ -55,6 +55,23 @@ interface IMail
     public function init( $config = array( ) );
     
     /**
+     * Sets the TO: email address.
+     * 
+     * @param array $to address and optional name
+     *                  e.g., <code>
+     *                          array( 'address' => 'address@example.com,
+     *                                 'name'    => 'John Smith' );
+     *                        </code>
+     * 
+     * @filter ON_MAIL_ADD_TO_FILTER
+     * 
+     * @action ON_MAIL_ADD_TO_ACTION
+     * 
+     * @return bool TRUE on success, FALSE on failure
+     */
+    public function addTo( $to = array( ) );
+    
+    /**
      * Sets the subject parameter.
      * 
      * @param string $subject the message subject
