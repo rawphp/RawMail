@@ -114,4 +114,53 @@ interface IMail
      * @return bool TRUE on success, FALSE on failure
      */
     public function send( );
+    
+    /**
+     * Returns the To recipients.
+     * 
+     * @return array list of recipients
+     */
+    public function getTo( );
+    
+    /**
+     * Gets the From name.
+     * 
+     * @return string From name
+     */
+    public function getFromName( );
+    
+    /**
+     * Gets the From address.
+     * 
+     * @return string From email address
+     */
+    public function getFromAddress( );
+    
+    /**
+     * Returns the Subject.
+     * 
+     * @return string the subject
+     */
+    public function getSubject( );
+    
+    /**
+     * Returns the Body.
+     * 
+     * @return string the body
+     */
+    public function getBody( );
+    
+    /**
+     * Returns the SMTP host.
+     * 
+     * @return string the host
+     */
+    public function getSmtpHost( );
+    
+    /**
+     * Returns the SMTP port.
+     * 
+     * @return int the port
+     */
+    public function getSmtpPort( );
 }

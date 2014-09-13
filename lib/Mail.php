@@ -38,6 +38,7 @@ namespace RawPHP\RawMail;
 use RawPHP\RawBase\Component;
 use RawPHP\RawMail\IMail;
 use RawPHP\RawMail\MailException;
+use \PHPMailer;
 
 /**
  * An email handler service.
@@ -54,6 +55,15 @@ use RawPHP\RawMail\MailException;
  */
 class Mail extends Component implements IMail
 {
+    /**
+     *
+     * @var array
+     */
+    public $to                      = array( );
+    
+    /**
+     * @var PHPMailer
+     */
     public $mailer = NULL;
     
     /**
@@ -63,7 +73,7 @@ class Mail extends Component implements IMail
      */
     public function init( $config = array( ) )
     {
-        $this->mailer = new \PHPMailer( );
+        $this->mailer = new PHPMailer( );
         
         foreach( $config as $key => $value )
         {
@@ -130,6 +140,8 @@ class Mail extends Component implements IMail
     public function addTo( $to = array( ) )
     {
         $to = $this->filter( self::ON_MAIL_ADD_TO_FILTER, $to );
+        
+        $this->to[] = $to;
         
         if ( is_array( $to ) )
         {
@@ -254,6 +266,76 @@ class Mail extends Component implements IMail
         $this->doAction( self::ON_MAIL_AFTER_SEND_ACTION );
         
         return $result;
+    }
+    
+    /**
+     * Returns the To recipients.
+     * 
+     * @return array list of recipients
+     */
+    public function getTo( )
+    {
+        return $this->to;
+    }
+    
+    /**
+     * Gets the From name.
+     * 
+     * @return string From name
+     */
+    public function getFromName( )
+    {
+        return $this->mailer->FromName;
+    }
+    
+    /**
+     * Gets the From address.
+     * 
+     * @return string From email address
+     */
+    public function getFromAddress( )
+    {
+        return $this->mailer->From;
+    }
+    
+    /**
+     * Returns the Subject.
+     * 
+     * @return string the subject
+     */
+    public function getSubject( )
+    {
+        return $this->mailer->Subject;
+    }
+    
+    /**
+     * Returns the Body.
+     * 
+     * @return string the body
+     */
+    public function getBody( )
+    {
+        return $this->mailer->Body;
+    }
+    
+    /**
+     * Returns the SMTP host.
+     * 
+     * @return string the host
+     */
+    public function getSmtpHost( )
+    {
+        return $this->mailer->Host;
+    }
+    
+    /**
+     * Returns the SMTP port.
+     * 
+     * @return int the port
+     */
+    public function getSmtpPort( )
+    {
+        return $this->mailer->Port;
     }
     
     const ON_MAIL_INIT_ACTION           = 'on_mail_init_action';
