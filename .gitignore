@@ -1,0 +1,9 @@
+nbproject/*
+tests/_output/*
+/dist/
+tests/_output/*
+/vendor/
+project.xml
+/composer.lock
+project.properties
+/tests/build/
