@@ -37,7 +37,7 @@ namespace RawPHP\RawMail;
 
 use RawPHP\RawBase\Component;
 use RawPHP\RawMail\IMail;
-use RawPHP\RawBase\Exceptions\RawException;
+use RawPHP\RawMail\MailException;
 
 /**
  * An email handler service.
@@ -141,7 +141,7 @@ class Mail extends Component implements IMail
         }
         else
         {
-            throw new Exception( 'Something went wrong with adding TO recipient' );
+            throw new MailException( 'Something went wrong with adding TO recipient' );
         }
         
         $this->doAction( self::ON_MAIL_ADD_TO_ACTION );
