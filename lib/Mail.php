@@ -59,7 +59,7 @@ class Mail extends Component implements IMail
      *
      * @var array
      */
-    public $to                      = array( );
+    public $to     = array( );
     
     /**
      * @var PHPMailer
@@ -70,8 +70,10 @@ class Mail extends Component implements IMail
      * Initialises the mailer.
      * 
      * @param array $config configuration array
+     * 
+     * @action ON_INIT_ACTION
      */
-    public function init( $config = array( ) )
+    public function init( $config )
     {
         $this->mailer = new PHPMailer( );
         
@@ -119,7 +121,7 @@ class Mail extends Component implements IMail
             }
         }
         
-        $this->doAction( self::ON_MAIL_INIT_ACTION );
+        $this->doAction( self::ON_INIT_ACTION );
     }
     
     /**
@@ -131,15 +133,15 @@ class Mail extends Component implements IMail
      *                                 'name'    => 'John Smith' );
      *                        </code>
      * 
-     * @filter ON_MAIL_ADD_TO_FILTER
+     * @filter ON_ADD_TO_FILTER
      * 
-     * @action ON_MAIL_ADD_TO_ACTION
+     * @action ON_ADD_TO_ACTION
      * 
      * @return bool TRUE on success, FALSE on failure
      */
     public function addTo( $to = array( ) )
     {
-        $to = $this->filter( self::ON_MAIL_ADD_TO_FILTER, $to );
+        $to = $this->filter( self::ON_ADD_TO_FILTER, $to );
         
         $this->to[] = $to;
         
@@ -156,7 +158,7 @@ class Mail extends Component implements IMail
             throw new MailException( 'Something went wrong with adding TO recipient' );
         }
         
-        $this->doAction( self::ON_MAIL_ADD_TO_ACTION );
+        $this->doAction( self::ON_ADD_TO_ACTION );
         
         return $result;
     }
@@ -166,13 +168,13 @@ class Mail extends Component implements IMail
      * 
      * @param string $subject the message subject
      * 
-     * @action ON_MAIL_SET_SUBJECT_ACTION
+     * @action ON_SET_SUBJECT_ACTION
      */
     public function setSubject( $subject )
     {
         $this->mailer->Subject = $subject;
         
-        $this->doAction( self::ON_MAIL_SET_SUBJECT_ACTION );
+        $this->doAction( self::ON_SET_SUBJECT_ACTION );
     }
     
     /**
@@ -180,13 +182,13 @@ class Mail extends Component implements IMail
      * 
      * @param string $body the message subject
      * 
-     * @action ON_MAIL_SET_BODY_ACTION
+     * @action ON_SET_BODY_ACTION
      */
     public function setBody( $body )
     {
         $this->mailer->Body = $body;
         
-        $this->doAction( self::ON_MAIL_SET_BODY_ACTION );
+        $this->doAction( self::ON_SET_BODY_ACTION );
     }
     
     /**
@@ -194,15 +196,15 @@ class Mail extends Component implements IMail
      * 
      * @param string $attachment attachment file path
      * 
-     * @filter ON_MAIL_ADD_ATTACHMENT_FILTER
+     * @filter ON_ADD_ATTACHMENT_FILTER
      * 
-     * @action ON_MAIL_ADD_ATTACHMENT_ACTION
+     * @action ON_ADD_ATTACHMENT_ACTION
      */
     public function addAttachment( $attachment )
     {
-        $this->mailer->addAttachment( $this->filter( self::ON_MAIL_ADD_ATTACHMENT_FILTER, $attachment ) );
+        $this->mailer->addAttachment( $this->filter( self::ON_ADD_ATTACHMENT_FILTER, $attachment ) );
         
-        $this->doAction( self::ON_MAIL_ADD_ATTACHMENT_ACTION );
+        $this->doAction( self::ON_ADD_ATTACHMENT_ACTION );
     }
     
     /**
@@ -211,7 +213,7 @@ class Mail extends Component implements IMail
      * @param mixed $email email string or email|name array
      *                     array( 'name' => 'Information', 'email' => 'name@email.com' );
      * 
-     * @action ON_MAIL_ADD_CC_ACTION
+     * @action ON_ADD_CC_ACTION
      */
     public function addCC( $email )
     {
@@ -224,7 +226,7 @@ class Mail extends Component implements IMail
             $this->mailer->addCC( $email );
         }
         
-        $this->doAction( self::ON_MAIL_ADD_CC_ACTION );
+        $this->doAction( self::ON_ADD_CC_ACTION );
     }
     
     /**
@@ -233,7 +235,7 @@ class Mail extends Component implements IMail
      * @param mixed $email email string or email|name array
      *                     array( 'name' => 'Information', 'email' => 'name@email.com' );
      * 
-     * @action ON_MAIL_ADD_BCC_ACTION
+     * @action ON_ADD_BCC_ACTION
      */
     public function addBCC( $email )
     {
@@ -246,24 +248,24 @@ class Mail extends Component implements IMail
             $this->mailer->addBCC( $email );
         }
         
-        $this->doAction( self::ON_MAIL_ADD_BCC_ACTION );
+        $this->doAction( self::ON_ADD_BCC_ACTION );
     }
     
     /**
      * Sends the email.
      * 
-     * @action ON_MAIL_BEFORE_SEND_ACTION
-     * @action ON_MAIL_AFTER_SEND_ACTION
+     * @action ON_BEFORE_SEND_ACTION
+     * @action ON_AFTER_SEND_ACTION
      * 
      * @return bool TRUE on success, FALSE on failure
      */
     public function send( )
     {
-        $this->doAction( self::ON_MAIL_BEFORE_SEND_ACTION );
+        $this->doAction( self::ON_BEFORE_SEND_ACTION );
         
         $result = $this->mailer->send();
         
-        $this->doAction( self::ON_MAIL_AFTER_SEND_ACTION );
+        $this->doAction( self::ON_AFTER_SEND_ACTION );
         
         return $result;
     }
@@ -338,17 +340,16 @@ class Mail extends Component implements IMail
         return $this->mailer->Port;
     }
     
-    const ON_MAIL_INIT_ACTION           = 'on_mail_init_action';
-    const ON_MAIL_ADD_TO_ACTION         = 'on_mail_add_to_action';
-    const ON_MAIL_SET_SUBJECT_ACTION    = 'on_mail_set_subject_action';
-    const ON_MAIL_SET_BODY_ACTION       = 'on_mail_set_body_action';
-    const ON_MAIL_ADD_ATTACHMENT_ACTION = 'on_mail_add_attachment_action';
-    const ON_MAIL_ADD_CC_ACTION         = 'on_mail_add_cc_action';
-    const ON_MAIL_ADD_BCC_ACTION        = 'on_mail_add_bcc_action';
-    const ON_MAIL_BEFORE_SEND_ACTION    = 'on_mail_before_send_action';
-    const ON_MAIL_AFTER_SEND_ACTION     = 'on_mail_after_send_action';
+    const ON_INIT_ACTION           = 'on_init_action';
+    const ON_ADD_TO_ACTION         = 'on_add_to_action';
+    const ON_SET_SUBJECT_ACTION    = 'on_set_subject_action';
+    const ON_SET_BODY_ACTION       = 'on_set_body_action';
+    const ON_ADD_ATTACHMENT_ACTION = 'on_add_attachment_action';
+    const ON_ADD_CC_ACTION         = 'on_add_cc_action';
+    const ON_ADD_BCC_ACTION        = 'on_add_bcc_action';
+    const ON_BEFORE_SEND_ACTION    = 'on_before_send_action';
+    const ON_AFTER_SEND_ACTION     = 'on_after_send_action';
     
-    const ON_MAIL_ADD_TO_FILTER         = 'on_mail_add_to_filter';
-    const ON_MAIL_ADD_ATTACHMENT_FILTER = 'on_mail_add_attachment_filter';
-    
+    const ON_ADD_TO_FILTER         = 'on_add_to_filter';
+    const ON_ADD_ATTACHMENT_FILTER = 'on_add_attachment_filter';
 }
