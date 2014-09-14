@@ -12,12 +12,12 @@
 ### Composer
 RawMail is available via [Composer/Packagist](https://packagist.org/packages/rawphp/raw-mail).
 
-Add `"rawphp/raw-mail": "dev-master"` to the require block in your composer.json and then run `composer install`.
+Add `"rawphp/raw-mail": "0.1.1"` to the require block in your composer.json and then run `composer install`.
 
 ```json
 {
         "require": {
-            "rawphp/raw-mail": "dev-master"
+            "rawphp/raw-mail": "0.1.1"
         }
 }
 ```
@@ -25,7 +25,7 @@ Add `"rawphp/raw-mail": "dev-master"` to the require block in your composer.json
 You can also simply run the following from the command line:
 
 ```sh
-composer require rawphp/raw-mail "dev-master"
+composer require rawphp/raw-mail "0.1.1"
 ```
 
 ### Tarball
