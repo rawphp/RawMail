@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "rawphp/raw-base": "dev-master",
+        "rawphp/raw-base": "0.1.0",
         "phpmailer/phpmailer": "v5.2.8"
     },
     "require-dev": {
