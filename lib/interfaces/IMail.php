@@ -52,7 +52,7 @@ interface IMail
      * 
      * @param array $config configuration array
      */
-    public function init( $config = array( ) );
+    public function init( $config );
     
     /**
      * Sets the TO: email address.

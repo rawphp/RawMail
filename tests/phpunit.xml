@@ -18,7 +18,7 @@
          verbose="false">
        
   <testsuites>
-    <testsuite name="RawLog">
+    <testsuite name="RawMail">
         <directory suffix="Test.php">unit/lib/</directory>
     </testsuite>
   </testsuites>

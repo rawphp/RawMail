@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "rawphp/raw-base": "0.1.0",
+        "rawphp/raw-base": "0.*@dev",
         "phpmailer/phpmailer": "v5.2.8"
     },
     "require-dev": {
@@ -24,5 +24,10 @@
         "classmap": [
             "lib/"
         ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.x-dev"
+        }
     }
 }

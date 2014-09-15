@@ -26,7 +26,7 @@
  * PHP version 5.4
  * 
  * @category  PHP
- * @package   RawPHP/RawLog
+ * @package   RawPHP/RawMail
  * @author    Tom Kaczohca <tom@rawphp.org>
  * @copyright 2014 Tom Kaczocha
  * @license   http://rawphp.org/license.txt MIT

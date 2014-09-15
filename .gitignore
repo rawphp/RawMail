@@ -4,6 +4,7 @@ tests/_output/*
 tests/_output/*
 /vendor/
 project.xml
-/composer.lock
 project.properties
 /tests/build/
+/composer.lock
+!/tests/_output/empty

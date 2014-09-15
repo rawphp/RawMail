@@ -1,8 +1,6 @@
-
 # RawMail - A Simple Wrapper around PHPMailer used by RawPHP framework and other applications.
 
 ## Package Features
-
 - Simple to use mailer
 - SMTP support
 - Supports attachments
@@ -12,12 +10,12 @@
 ### Composer
 RawMail is available via [Composer/Packagist](https://packagist.org/packages/rawphp/raw-mail).
 
-Add `"rawphp/raw-mail": "0.1.1"` to the require block in your composer.json and then run `composer install`.
+Add `"rawphp/raw-mail": "0.*@dev"` to the require block in your composer.json and then run `composer install`.
 
 ```json
 {
         "require": {
-            "rawphp/raw-mail": "0.1.1"
+            "rawphp/raw-mail": "0.*@dev"
         }
 }
 ```
@@ -25,7 +23,7 @@ Add `"rawphp/raw-mail": "0.1.1"` to the require block in your composer.json and 
 You can also simply run the following from the command line:
 
 ```sh
-composer require rawphp/raw-mail "0.1.1"
+composer require rawphp/raw-mail "0.*@dev"
 ```
 
 ### Tarball
