@@ -1,4 +1,6 @@
-# RawMail - A Simple Wrapper around PHPMailer used by RawPHP framework and other applications.
+# RawMail - A Simple Wrapper around PHPMailer.
+
+[![Build Status](https://travis-ci.org/rawphp/RawMail.svg?branch=master)](https://travis-ci.org/rawphp/RawMail)
 
 ## Package Features
 - Simple to use mailer
