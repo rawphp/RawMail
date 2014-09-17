@@ -73,8 +73,10 @@ class Mail extends Component implements IMail
      * 
      * @action ON_INIT_ACTION
      */
-    public function init( $config )
+    public function init( $config = NULL )
     {
+        parent::init( $config );
+        
         $this->mailer = new PHPMailer( );
         
         foreach( $config as $key => $value )

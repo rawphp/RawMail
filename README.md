@@ -1,6 +1,6 @@
-# RawMail - A Simple Wrapper around PHPMailer.
+# RawMail - A Simple Wrapper around PHPMailer. [![Build Status](https://travis-ci.org/rawphp/RawMail.svg?branch=master)](https://travis-ci.org/rawphp/RawMail)
 
-[![Build Status](https://travis-ci.org/rawphp/RawMail.svg?branch=master)](https://travis-ci.org/rawphp/RawMail)
+[![Latest Stable Version](https://poser.pugx.org/rawphp/raw-mail/v/stable.svg)](https://packagist.org/packages/rawphp/raw-mail) [![Total Downloads](https://poser.pugx.org/rawphp/raw-mail/downloads.svg)](https://packagist.org/packages/rawphp/raw-mail) [![Latest Unstable Version](https://poser.pugx.org/rawphp/raw-mail/v/unstable.svg)](https://packagist.org/packages/rawphp/raw-mail) [![License](https://poser.pugx.org/rawphp/raw-mail/license.svg)](https://packagist.org/packages/rawphp/raw-mail)
 
 ## Package Features
 - Simple to use mailer
