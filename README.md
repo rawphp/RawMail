@@ -81,6 +81,9 @@ Please submit bug reports, suggestions and pull requests to the [GitHub issue tr
 
 ## Changelog
 
+#### 20-09-2014
+- Replaced php array configuration with yaml
+
 #### 18-09-2014
 - Updated to work with the latest rawphp/rawbase package.
 
