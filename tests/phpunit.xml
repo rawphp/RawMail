@@ -19,23 +19,20 @@
        
   <testsuites>
     <testsuite name="RawMail">
-        <directory suffix="Test.php">unit/lib/</directory>
+        <directory suffix="Test.php">unit/</directory>
     </testsuite>
   </testsuites>
 
   <logging>
     <log type="testdox-html" target="build/testdox.html"/>
     <log type="testdox-text" target="build/testdox.txt"/>
+    <log type="coverage-html" target="build/coverage/html"/>
     <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
   </logging>
 
   <filter>
-    <whitelist addUncoveredFilesFromWhitelist="true">
-      <directory suffix=".php">./</directory>
-      <exclude>
-        <file>bootstrap.php</file>
-        <directory>resources/</directory>
-      </exclude>
+    <whitelist>
+      <directory suffix=".php">../lib/</directory>
     </whitelist>
   </filter>
 

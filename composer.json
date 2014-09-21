@@ -13,7 +13,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=5.3.0",
         "rawphp/raw-base": "0.*@dev",
         "phpmailer/phpmailer": "v5.2.8",
         "rawphp/raw-yaml": "0.*@dev"
@@ -22,7 +22,8 @@
         "phpunit/phpunit": "4.2.5",
         "squizlabs/php_codesniffer": "dev-master",
         "rawphp/raw-code-standards": "1.*@dev",
-        "phpdocumentor/phpdocumentor": "dev-master"
+        "phpdocumentor/phpdocumentor": "dev-master",
+		"satooshi/php-coveralls": "dev-master"
     },
     "autoload": {
         "classmap": [

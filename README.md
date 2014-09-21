@@ -1,6 +1,8 @@
-# RawMail - A Simple Wrapper around PHPMailer. [![Build Status](https://travis-ci.org/rawphp/RawMail.svg?branch=master)](https://travis-ci.org/rawphp/RawMail)
+# RawMail - A Simple Wrapper around PHPMailer
 
-[![Latest Stable Version](https://poser.pugx.org/rawphp/raw-mail/v/stable.svg)](https://packagist.org/packages/rawphp/raw-mail) [![Total Downloads](https://poser.pugx.org/rawphp/raw-mail/downloads.svg)](https://packagist.org/packages/rawphp/raw-mail) [![Latest Unstable Version](https://poser.pugx.org/rawphp/raw-mail/v/unstable.svg)](https://packagist.org/packages/rawphp/raw-mail) [![License](https://poser.pugx.org/rawphp/raw-mail/license.svg)](https://packagist.org/packages/rawphp/raw-mail)
+[![Build Status](https://travis-ci.org/rawphp/RawMail.svg?branch=master)](https://travis-ci.org/rawphp/RawMail) [![Coverage Status](https://coveralls.io/repos/rawphp/RawMail/badge.png)](https://coveralls.io/r/rawphp/RawMail)
+[![Latest Stable Version](https://poser.pugx.org/rawphp/raw-mail/v/stable.svg)](https://packagist.org/packages/rawphp/raw-mail) [![Total Downloads](https://poser.pugx.org/rawphp/raw-mail/downloads.svg)](https://packagist.org/packages/rawphp/raw-mail) 
+[![Latest Unstable Version](https://poser.pugx.org/rawphp/raw-mail/v/unstable.svg)](https://packagist.org/packages/rawphp/raw-mail) [![License](https://poser.pugx.org/rawphp/raw-mail/license.svg)](https://packagist.org/packages/rawphp/raw-mail)
 
 ## Package Features
 - Simple to use mailer
@@ -80,6 +82,9 @@ This package is licensed under the [MIT](https://github.com/rawphp/RawMail/blob/
 Please submit bug reports, suggestions and pull requests to the [GitHub issue tracker](https://github.com/rawphp/RawMail/issues).
 
 ## Changelog
+
+#### 22-09-2014
+- Updated to PHP 5.3.
 
 #### 20-09-2014
 - Replaced php array configuration with yaml
