@@ -92,7 +92,7 @@ class Mail extends Component implements IMail
                     break;
                 
                 case 'is_html':
-                    $this->mailer->isHTML( $value );
+                    $this->mailer->isHTML( ( bool )$value );
                     break;
                 
                 case 'smtp':
@@ -130,10 +130,11 @@ class Mail extends Component implements IMail
      * Sets the TO: email address.
      * 
      * @param array $to address and optional name
-     *                  e.g., <code>
-     *                          array( 'address' => 'address@example.com,
-     *                                 'name'    => 'John Smith' );
-     *                        </code>
+     *                  e.g.,
+     * <pre>
+     *     array( 'address' => 'address@example.com,
+     *            'name'    => 'John Smith' );
+     * </pre>
      * 
      * @filter ON_ADD_TO_FILTER
      * 
