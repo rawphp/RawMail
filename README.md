@@ -4,6 +4,8 @@
 [![Latest Stable Version](https://poser.pugx.org/rawphp/raw-mail/v/stable.svg)](https://packagist.org/packages/rawphp/raw-mail) [![Total Downloads](https://poser.pugx.org/rawphp/raw-mail/downloads.svg)](https://packagist.org/packages/rawphp/raw-mail) 
 [![Latest Unstable Version](https://poser.pugx.org/rawphp/raw-mail/v/unstable.svg)](https://packagist.org/packages/rawphp/raw-mail) [![License](https://poser.pugx.org/rawphp/raw-mail/license.svg)](https://packagist.org/packages/rawphp/raw-mail)
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/68dea4ad-43b9-4a4c-b929-77575a2061fd/big.png)](https://insight.sensiolabs.com/projects/68dea4ad-43b9-4a4c-b929-77575a2061fd)
+
 ## Package Features
 - Simple to use mailer
 - SMTP support
