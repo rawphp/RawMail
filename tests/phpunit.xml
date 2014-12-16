@@ -19,7 +19,7 @@
        
   <testsuites>
     <testsuite name="RawMail">
-        <directory suffix="Test.php">unit/</directory>
+        <directory suffix="Test.php">.</directory>
     </testsuite>
   </testsuites>
 

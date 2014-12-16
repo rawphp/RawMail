@@ -26,22 +26,22 @@
  * PHP version 5.3
  * 
  * @category  PHP
- * @package   RawPHP/RawMail
+ * @package   RawPHP\RawMail\Exception
  * @author    Tom Kaczohca <tom@rawphp.org>
  * @copyright 2014 Tom Kaczocha
  * @license   http://rawphp.org/license.txt MIT
  * @link      http://rawphp.org/
  */
 
-namespace RawPHP\RawMail;
+namespace RawPHP\RawMail\Exception;
 
-use RawPHP\RawBase\Exceptions\RawException;
+use RawPHP\RawSupport\Exception\RawException;
 
 /**
  * Exception thrown when there are problems with the mailer.
  * 
  * @category  PHP
- * @package   RawPHP/RawMail
+ * @package   RawPHP\RawMail\Exception
  * @author    Tom Kaczocha <tom@rawphp.org>
  * @copyright 2014 Tom Kaczocha
  * @license   http://rawphp.org/license.txt MIT

@@ -33,8 +33,9 @@
  * @link      http://rawphp.org/
  */
 
-namespace RawPHP\RawMail;
+namespace RawPHP\RawMail\Tests;
 
+use PHPUnit_Framework_TestCase;
 use RawPHP\RawMail\Mail;
 
 /**
@@ -47,21 +48,21 @@ use RawPHP\RawMail\Mail;
  * @license   http://rawphp.org/license.txt MIT
  * @link      http://rawphp.org/
  */
-class MailTest extends \PHPUnit_Framework_TestCase
+class MailTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Mail
      */
     public $mail;
 
-    private $_to      = array( 'address' => 'test@example.com', 'name' => 'John Smith' );
+    private $_to = [ 'address' => 'test@example.com', 'name' => 'John Smith' ];
     private $_subject = 'Test Subject';
-    private $_body    = 'Test message body';
+    private $_body = 'Test message body';
 
     /**
      * Setup before each test.
      */
-    public function setup( )
+    public function setup()
     {
         global $config;
 
@@ -74,7 +75,7 @@ class MailTest extends \PHPUnit_Framework_TestCase
     /**
      * Cleanup after each test.
      */
-    public function tearDown( )
+    public function tearDown()
     {
         $this->mail = NULL;
     }
@@ -82,7 +83,7 @@ class MailTest extends \PHPUnit_Framework_TestCase
     /**
      * Test log instantiated correctly.
      */
-    public function testMailInstantiatedSuccessfully( )
+    public function testMailInstantiatedSuccessfully()
     {
         $this->assertNotNull( $this->mail );
     }
@@ -92,7 +93,7 @@ class MailTest extends \PHPUnit_Framework_TestCase
      *
      * @global array $config configuration array
      */
-    public function testMailSetupCorrectly( )
+    public function testMailSetupCorrectly()
     {
         global $config;
 
@@ -114,10 +115,10 @@ class MailTest extends \PHPUnit_Framework_TestCase
     /**
      * Test mail fails to send with bad SMTP creds.
      */
-    public function testMailFailsToSendWithBadSmtpCredentials( )
+    public function testMailFailsToSendWithBadSmtpCredentials()
     {
         $this->mail->addTo( $this->_to );
 
-        $this->assertFalse( $this->mail->send( ) );
+        $this->assertFalse( $this->mail->send() );
     }
 }

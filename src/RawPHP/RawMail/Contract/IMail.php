@@ -26,20 +26,20 @@
  * PHP version 5.3
  * 
  * @category  PHP
- * @package   RawPHP/RawMail
- * @author    Tom Kaczohca <tom@rawphp.org>
+ * @package   RawPHP\RawMail\Contract
+ * @author    Tom Kaczocha <tom@rawphp.org>
  * @copyright 2014 Tom Kaczocha
  * @license   http://rawphp.org/license.txt MIT
  * @link      http://rawphp.org/
  */
 
-namespace RawPHP\RawMail;
+namespace RawPHP\RawMail\Contract;
 
 /**
  * The mail interface.
  * 
  * @category  PHP
- * @package   RawPHP/RawMail
+ * @package   RawPHP\RawMail\Contract
  * @author    Tom Kaczocha <tom@rawphp.org>
  * @copyright 2014 Tom Kaczocha
  * @license   http://rawphp.org/license.txt MIT

@@ -1,11 +1,4 @@
-nbproject/*
-tests/_output/*
-/dist/
-tests/_output/*
+tests/build/*
 /vendor/
-project.xml
-project.properties
-/tests/build/
 /composer.lock
-!/tests/_output/empty
-/docs/
+.idea/*
